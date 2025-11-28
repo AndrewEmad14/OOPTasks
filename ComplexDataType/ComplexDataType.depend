@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1764288736 source:/home/andrew-emad/Documents/C++Tasks/ComplexDataType/main.cpp
+	<iostream>
+	"Complex.h"
+	"StreamValidator.h"
+
+1764288771 /home/andrew-emad/Documents/C++Tasks/ComplexDataType/Complex.h
+	<iostream>
+	<string>
+
+1764283698 source:/home/andrew-emad/Documents/C++Tasks/ComplexDataType/Complex.cpp
+	<iostream>
+	"Complex.h"
+
+1764194713 source:/home/andrew-emad/Documents/C++Tasks/ComplexDataType/Validator.cpp
+
+1764198470 /home/andrew-emad/Documents/C++Tasks/ComplexDataType/StreamValidatior.h
+	<string>
+
+1764283366 source:/home/andrew-emad/Documents/C++Tasks/ComplexDataType/SreamValidator.cpp
+	"StreamValidator.h"
+
+1764281873 /home/andrew-emad/Documents/C++Tasks/ComplexDataType/StreamValidator.h
+	<string>
+
