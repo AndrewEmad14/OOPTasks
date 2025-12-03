@@ -41,20 +41,22 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
 #include <iostream>
+#include "StreamValidator.h"
 #define EPSILON 1e-9                //tolerance value
+#define DEFAULTVAL 0
 #include <string>
+
 class Complex{
     double real;
     double imag;
-
 
     public:
         Complex();
         Complex(double real,double imag=0.0);
         void setComplex(double real,double imag);
-        double getReal();
-        double getImag();
-        bool isComplexZero();
+        double getReal(void);
+        double getImag(void);
+        bool isComplexZero(void);
         std::string complexToString()const;
                                                         //Math
         Complex operator+(const Complex& other);
@@ -62,23 +64,31 @@ class Complex{
         Complex operator*(const Complex& other);
         Complex operator/(const Complex& other);
                                                         //assignment
-        void operator+=(const Complex& other);
-        void operator-=(const Complex& other);
-        void operator*=(const Complex& other);
-        void operator/=(const Complex& other);
+        Complex& operator=(const Complex& other);
+        Complex&  operator+=(const Complex& other);
+        Complex&  operator-=(const Complex& other);
+        Complex&  operator*=(const Complex& other);
+        Complex&  operator/=(const Complex& other);
 
                                                         //unary
         Complex operator+(double realNum);
         Complex operator-(double realNum);
         Complex operator*(double realNum);
         Complex operator/(double realNum);
-                                                        //assigment
-        void operator+=(double realNum);
-        void operator-=(double realNum);
-        void operator*=(double realNum);
-        void operator/=(double realNum);
+                                                        //assigment with int
+        Complex& operator+=(double realNum);
+        Complex& operator-=(double realNum);
+        Complex& operator*=(double realNum);
+        Complex& operator/=(double realNum);
+                                                                    //prefix
+        Complex& operator++(void);
+        Complex& operator--(void);
+                                                                    //postfix
+        Complex operator++(int);
+        Complex operator--(int);
+
                                                         //compare
-        double getMagnitude()const;
+        double getMagnitude(void)const;
         bool operator==(const Complex& other)const;
         bool operator!=(const Complex& other)const;
         bool operator>(const Complex& other)const;
@@ -89,7 +99,12 @@ class Complex{
                                                         //input and output
 
         friend std::ostream& operator<<(std::ostream& os, const Complex& c);
-        //friend istream& operator>>(istream& is, Complex& c);
+        friend std::istream& operator>>(std::istream& is, Complex& c);
+
+                                            //write access
+        double& operator[](int index);
+                                                    //read only access
+        const double& operator[](int index) const;
 
 };
 

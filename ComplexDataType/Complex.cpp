@@ -101,24 +101,32 @@ Complex Complex:: operator/(const Complex& other)  {
 }
 
                                                                                     //assignment
-void Complex::operator+=(const Complex& other) {
+
+Complex& Complex:: operator=(const Complex& other){
+
+    this->real = other.real;
+    this->imag = other.imag;
+    return *this;
+}
+
+Complex& Complex::operator+=(const Complex& other) {
     this->real += other.real;
     this->imag += other.imag;
 }
 
-void Complex::operator-=(const Complex& other) {
+Complex& Complex::operator-=(const Complex& other) {
     this->real -= other.real;
     this->imag -= other.imag;
 }
 
-void Complex::operator*=(const Complex& other) {
+Complex& Complex::operator*=(const Complex& other) {
     double newReal = this->real * other.real - this->imag * other.imag;
     double newImag = this->real * other.imag + this->imag * other.real;
     this->real = newReal;
     this->imag = newImag;
 }
 
-void Complex::operator/=(const Complex& other) {
+Complex& Complex::operator/=(const Complex& other) {
     double denominator = other.real * other.real + other.imag * other.imag;
     double newReal = (this->real * other.real + this->imag * other.imag) / denominator;
     double newImag = (this->imag * other.real - this->real * other.imag) / denominator;
@@ -127,8 +135,11 @@ void Complex::operator/=(const Complex& other) {
 }
 
 
+
+
                                                                                                                                         //UNIARY operations
                                                                             //UNIARY operations
+
 
 
 Complex Complex:: operator+(double realNum)  {
@@ -157,27 +168,56 @@ Complex Complex:: operator/(double realNum)  {
 
 
                                                                 //assignment with int
-void Complex::operator+=(double realNum) {
+Complex&  Complex::operator+=(double realNum) {
     this->real += realNum;
+    return *this;
+
 }
 
-void Complex::operator-=(double realNum) {
+Complex&  Complex::operator-=(double realNum) {
     this->real -= realNum;
+    return *this;
+
 }
 
-void Complex::operator*=(double realNum) {
+Complex&  Complex::operator*=(double realNum) {
     this->real *= realNum;
     this->imag *= realNum;
+    return *this;
 }
 
-void Complex::operator/=(double realNum) {
+Complex&  Complex::operator/=(double realNum) {
     this->real /= realNum;
     this->imag /= realNum;
+    return *this;
+}
+                                                                                //prefix
+Complex& Complex::operator++(){
+    this->real++;
+    this->imag++;
+    return *this;
+}
+Complex& Complex::operator--(){
+    this->real--;
+    this->imag--;
+    return *this;
+}
+                                                                            //postfix
+Complex Complex::operator++(int) {
+    Complex temp = *this;
+    this->real++;
+    this->imag++;
+    return temp;
+}
+Complex Complex::operator--(int){
+     Complex temp = *this;
+    this->real--;
+    this->imag--;
+    return temp;
 }
 
 
-
-                                                                    //comparison
+                                                                                                            //comparison
 double Complex::getMagnitude()const{
     return sqrt(this->real * this->real + this->imag * this->imag);
 }
@@ -214,7 +254,31 @@ int Complex::compareComplex(const Complex& c2)const {
     return 1;
 }
 
+istream& operator>>(istream& is, Complex& c){
+    string stream="";
+    double real=DEFAULTVAL,imag=DEFAULTVAL;
+    cout << "Enter Complex Number " << ":" << endl;
+    cout << "  Real part: ";
+    getline(is,stream);
+    if(StreamValidator::isEmpty(stream)||!(StreamValidator::CastToDouble(stream,real))){
+           is.setstate(ios::failbit);
+           return is;
 
+    }
+
+    cout << "  Imaginary part: ";
+    getline(is,stream);
+    if(StreamValidator::isEmpty(stream)||!(StreamValidator::CastToDouble(stream,imag))){
+            is.setstate(ios::failbit);
+            return is;
+
+    }
+
+    cout << endl;
+    c.setComplex(real,imag);
+    return is;
+
+}
                                                                 //I/O
 ostream& operator<<(ostream& os, const Complex& c) {
 
@@ -223,5 +287,15 @@ ostream& operator<<(ostream& os, const Complex& c) {
     return os;
 }
 
-
+double&  Complex::operator[](int index) {
+    if (index == 0) return real;
+    else if (index == 1) return imag;
+    else throw std::out_of_range("Complex number has only 2 components");
+    }
+                                                    //read only access
+const double& Complex:: operator[](int index) const {
+    if (index == 0) return real;
+    else if (index == 1) return imag;
+    else throw std::out_of_range("Complex number has only 2 components");
+}
 

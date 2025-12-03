@@ -23,3 +23,24 @@
 1764281873 /home/andrew-emad/Documents/C++Tasks/ComplexDataType/StreamValidator.h
 	<string>
 
+1764729645 source:/home/andrew-emad/Documents/OOPTasks/ComplexDataType/Complex.cpp
+	<iostream>
+	"Complex.h"
+	<math.h>
+
+1764729635 /home/andrew-emad/Documents/OOPTasks/ComplexDataType/Complex.h
+	<iostream>
+	"StreamValidator.h"
+	<string>
+
+1764729865 source:/home/andrew-emad/Documents/OOPTasks/ComplexDataType/main.cpp
+	<iostream>
+	"Complex.h"
+	"StreamValidator.h"
+
+1764281873 /home/andrew-emad/Documents/OOPTasks/ComplexDataType/StreamValidator.h
+	<string>
+
+1764283366 source:/home/andrew-emad/Documents/OOPTasks/ComplexDataType/SreamValidator.cpp
+	"StreamValidator.h"
+
