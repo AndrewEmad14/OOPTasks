@@ -291,7 +291,7 @@ double&  Complex::operator[](int index) {
     if (index == 0) return real;
     else if (index == 1) return imag;
     else throw std::out_of_range("Complex number has only 2 components");
-    }
+}
                                                     //read only access
 const double& Complex:: operator[](int index) const {
     if (index == 0) return real;

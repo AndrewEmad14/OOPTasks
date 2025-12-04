@@ -3,12 +3,12 @@
 #define DEFAULT_VAL 0
 using namespace std;
 
-                                        //done
+                                        //Constructors --done
 CustomString::CustomString(){
         strSize=0;
 
 }
-                                        //done
+
 CustomString::CustomString(const char* input){
         if(input==NULL){
             this->str=nullptr;
@@ -29,7 +29,6 @@ CustomString::CustomString(const char* input){
         *head='\0';
 
 }
-                                                        //done
 CustomString::CustomString(CustomString& other){
         if(other.str==NULL){
             this->str=nullptr;
@@ -50,7 +49,7 @@ CustomString::CustomString(CustomString& other){
         *head='\0';
 
 }
-                                            //done
+                                            //display --done
 void CustomString::display(){
         if(this->str==NULL) return;
             char* head = this->str;
@@ -59,6 +58,14 @@ void CustomString::display(){
                 head++;
             }
             cout<<endl;
+
+
+}
+void CustomString::operator*(int x){
+    while(x){
+          this->display();
+          x--;
+    }
 
 
 }
@@ -78,7 +85,7 @@ bool CustomString::setString(const char* input){
 
     return 1;
 }
-                                                            //done
+                                                            //setters and getters  --done
 bool CustomString::setString(const CustomString& other){
     if(other.str==NULL)return 0;
     this->strSize=other.strSize+1;
@@ -96,18 +103,18 @@ bool CustomString::setString(const CustomString& other){
     return 1;
 }
 
-                                                    //done
+
 char* CustomString::getString(){
     if(this->str==nullptr)return nullptr;
     return this->str;
 }
 
 
-                                                //done
+
 int CustomString::getSize(){
     return strSize;
 }
-                                            //returns char arr size
+                                            //static functions
 int CustomString::cstringLength(const char* input){
     if(input==NULL)return 0;
     int counter=0;
@@ -118,6 +125,19 @@ int CustomString::cstringLength(const char* input){
     return counter;
 
 }
+bool CustomString::strCopy(char str1[],char str2[],int str1Size){
+    int str2Length=cstringLength(str2);
+    if(str1Size<str2Length)return 0;
+    while(*(str2)){
+        *(str1)=*(str2);
+        str1++;
+        str2++;
+    }
+    *str1='\0';
+    return 1;
+
+}
+                                            //to lower case and to upper case    -- done
 bool CustomString::toLower(){
     if(this->str!=NULL)return 0;
     int diff='a'-'A';
@@ -144,7 +164,7 @@ bool CustomString::toUpper(){
     return 1;
 }
 
-                                                                        //done
+                                                                        //append done
 bool CustomString::append(const char* input){
     if(input==NULL)return true;
     char* res;
@@ -177,7 +197,7 @@ bool CustomString::append(const char* input){
 
 
 
-                                                                        //done
+
 bool CustomString::append(const CustomString& other){
     if(other.str==NULL)return true;
     char* res;
@@ -209,56 +229,79 @@ bool CustomString::append(const CustomString& other){
     return 1;                               //operation successful
 }
 
-bool CustomString::strCopy(char str1[],char str2[],int str1Size){
-    int str2Length=cstringLength(str2);
-    if(str1Size<str2Length)return 0;
-    while(*(str2)){
-        *(str1)=*(str2);
+
+
+
+                                                                            //compare --done
+int CustomString::strCompare(const char str2[])const {
+    if(this->str == nullptr && str2 == nullptr) return 0;
+    if(this->str == nullptr) return 1;
+    if(str2 == nullptr) return -1;
+
+    int size1 = this->strSize - 1;          // Exclude null terminator
+    int size2 = cstringLength(str2);
+
+                                        // Compare by length first
+    if(size1 < size2) return 1;
+    if(size1 > size2) return -1;
+
+                                        // Same length
+    char* str1 = this->str;
+    while(*str1 != '\0') {
+        if(*str1 < *str2) return 1;
+        if(*str1 > *str2) return -1;
         str1++;
         str2++;
     }
-    *str1='\0';
-    return 1;
 
+    return 0;
 }
-//int CustomString::strCompare(char str2[]){
-//    if(this->str == NULL || str2==NULL)return -2;
-//    int sumStr1=DEFAULT_VAL,sumStr2=DEFAULT_VAL;
-//    char *str1=this->str;
-//    int size1=strSize,size2=cstringLength(str2);
-//    if(size1<size2)
-//        return 1;
-//    else if (size1>size2)
-//        return -1;
-//    while(*(str1)||*(str2)){
-//        if(*(str1)){
-//            str1++;
-//            sumStr1+=*str1;
-//        }
-//        if(*(str2)){
-//            str2++;
-//            sumStr2+=*str2;
-//        }
-//    }
-//    if(sumStr1>sumStr2){
-//            return -1;
-//
-//    }else if(sumStr1<sumStr2){
-//        return 1;
-//    }else{
-//        return 0;
-//    }
-//}
+int CustomString::strCompare(const CustomString& other)const {
+    if(this->str == nullptr && other.str == nullptr) return 0;
+    if(this->str == nullptr) return 1;
+    if(other.str == nullptr) return -1;
+
+    int size1 = this->strSize - 1;          // Exclude null terminator
+    int size2 = other.strSize - 1;
+
+                                        // Compare by length first
+    if(size1 < size2) return 1;
+    if(size1 > size2) return -1;
+
+                                        // Same length
+    char* str1 = this->str;
+    char* str2 = other.str;
+    while(*str1 != '\0') {
+        if(*str1 < *str2) return 1;
+        if(*str1 > *str2) return -1;
+        str1++;
+        str2++;
+    }
+
+    return 0;
+}
+
+
+
+                                                                    //overload
+
+                                                                    //uniary operations --done
 
 CustomString CustomString::operator+(const char* other){
-        this->append(other);
-        return *this;
+        CustomString temp=this->str;
+        temp.append(other);
+        return temp;
 
 }
 CustomString CustomString::operator+(const CustomString& other){
-        this->append(other);
-        return *this;
+        CustomString temp=this->str;
+        temp.append(other);
+        return temp;
 }
+
+
+
+                                                                    //asignment --done
 CustomString&  CustomString::operator=(const CustomString& other){
         this->setString(other);
         return *this;
@@ -269,29 +312,88 @@ CustomString&  CustomString::operator=(const char* other){
         return *this;
 
 }
-void CustomString::operator*(int x){
-    while(x){
-          this->display();
-          x--;
-    }
 
+                                                                    //asigment + append --done
+
+
+CustomString&  CustomString::operator+=(const CustomString& other){
+        this->append(other);
+        return *this;
+}
+
+                                                                    //compare String--done
+
+bool CustomString::operator==(const CustomString& other)const{
+    int result=this->strCompare(other);
+    return result==0;
+}
+bool CustomString::operator!=(const CustomString& other)const{
+    int result=this->strCompare(other);
+    return result==1 || result==-1;
+}
+bool CustomString::operator>(const CustomString& other)const{
+    int result=this->strCompare(other);
+    return result==-1;
+}
+bool CustomString::operator<(const CustomString& other)const{
+    int result=this->strCompare(other);
+    return result==1;
+}
+bool CustomString::operator>=(const CustomString& other)const{
+    int result=this->strCompare(other);
+    return result==0 || result==-1;
+}
+bool CustomString::operator<=(const CustomString& other)const{
+    int result=this->strCompare(other);
+    return result==0 || result==1;
+}
+                                                                    //compare CString
+
+bool CustomString::operator==(const char other[])const{
+    int result=this->strCompare(other);
+    return result==0;
+}
+bool CustomString::operator!=(const char other[])const{
+     int result=this->strCompare(other);
+    return result==1 || result==-1;
+}
+bool CustomString::operator>(const char other[])const{
+     int result=this->strCompare(other);
+    return result==-1;
+}
+bool CustomString::operator<(const char other[])const{
+    int result=this->strCompare(other);
+    return result==1;
+}
+bool CustomString::operator>=(const char other[])const{
+     int result=this->strCompare(other);
+    return result==0 || result==-1;
+}
+bool CustomString::operator<=(const char other[])const{
+    int result=this->strCompare(other);
+    return result==0 || result==1;
+}
+
+                                            //write access
+char& CustomString::operator[](int index){
+    if(index>this->strSize-1)throw std::out_of_range("Complex number has only 2 components");
+    return this->str[index];
+}
+                                            //read only access
+const char& CustomString::operator[](int index) const{
+    if(index>this->strSize-1)throw std::out_of_range("Complex number has only 2 components");
+    return this->str[index];
+}
+ostream& operator<<(std::ostream& os, const CustomString& c){
+    os<<c.str;
+    return os;
+
+}
+istream& operator>>(std::istream& is, CustomString& c){
+       //to be implemented
 
 }
 
-//bool operator+=(const CustomString& other);
-//bool operator==(const CustomString& other)const;
-//bool operator!=(const CustomString& other)const;
-//bool operator>(const CustomString& other)const;
-//bool operator<(const CustomString& other)const;
-//bool operator>=(const CustomString& other)const;
-//bool operator<=(const CustomString& other)const;
-//friend std::ostream& operator<<(std::ostream& os, const CustomString& c);
-//friend std::istream& operator>>(std::istream& is, CustomString& c);
-
-                                            //write access
-//char& operator[](int index);
-                                            //read only access
-//const char& operator[](int index) const;
 CustomString::~CustomString(){
     delete(str);
 }

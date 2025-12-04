@@ -3,8 +3,8 @@
 
 #include "Point.h"  // Assuming Point class is defined here
 #include <iostream>
-
-class Circle
+#include "Shape.h"
+class Circle : public Shape
 {
 private:
     Point center;
@@ -13,7 +13,6 @@ private:
 public:
     Circle();
     Circle(int m, int n, int r);
-
     void draw();
 };
 

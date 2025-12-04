@@ -2,11 +2,11 @@
 #define RECT_H
 
 #include "Point.h"  // Assuming Point class is defined here
+#include "Shape.h"
 #include <iostream>
 
-class Rect
-{
-private:
+class Rect : public Shape{
+
     Point ul;  // upper left
     Point lr;  // lower right
 

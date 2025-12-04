@@ -48,8 +48,8 @@ class CustomString{
 
 
                                                                             //compare
-        int strCompare(const char str2[]);
-        int strCompare(CustomString& other);
+        int strCompare(const char str2[])const;
+        int strCompare(const CustomString& other)const;
 
                                                                             //overloading
 
@@ -68,13 +68,20 @@ class CustomString{
         void operator*(int x);
 
                                                                             //assigment and append
-        bool operator+=(const CustomString& other);
+        CustomString& operator+=(const CustomString& other);
+
         bool operator==(const CustomString& other)const;
         bool operator!=(const CustomString& other)const;
         bool operator>(const CustomString& other)const;
         bool operator<(const CustomString& other)const;
         bool operator>=(const CustomString& other)const;
         bool operator<=(const CustomString& other)const;
+        bool operator==(const char str2[])const;
+        bool operator!=(const char str2[])const;
+        bool operator>(const char str2[])const;
+        bool operator<(const char str2[])const;
+        bool operator>=(const char str2[])const;
+        bool operator<=(const char str2[])const;
         friend std::ostream& operator<<(std::ostream& os, const CustomString& c);
         friend std::istream& operator>>(std::istream& is, CustomString& c);
 

@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1764731761 source:/home/andrew-emad/Documents/OOPTasks/CustomStringLibary/main.cpp
+1764773456 source:/home/andrew-emad/Documents/OOPTasks/CustomStringLibary/main.cpp
 	<iostream>
 	<string>
 	"CustomString.h"
 
-1764731892 source:/home/andrew-emad/Documents/OOPTasks/CustomStringLibary/CustomString.cpp
+1764773532 source:/home/andrew-emad/Documents/OOPTasks/CustomStringLibary/CustomString.cpp
 	"CustomString.h"
 	<iostream>
 
-1764731826 /home/andrew-emad/Documents/OOPTasks/CustomStringLibary/CustomString.h
+1764766920 /home/andrew-emad/Documents/OOPTasks/CustomStringLibary/CustomString.h
 	<iostream>
 

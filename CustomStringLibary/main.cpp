@@ -7,9 +7,13 @@ using namespace std;
 int main()
 {
 
-    CustomString str2;
-    str2="smol PP";
-    str2=str2+"haai";
+    CustomString str1,str2;
+    str1="hello";
+    cin>>str2;
+
+    cout<<str2;
+
+
 
 
 }

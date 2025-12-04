@@ -3,11 +3,11 @@
 
 #include "Point.h"  // Assuming Point class is defined in Point.h
 #include <iostream>
-
+#include "Shape.h"
 // Forward declaration if needed (not required here since we include Point.h)
 // class Point;
 
-class Line
+class Line : public Shape
 {
     Point startPoint;
     Point endPoint;

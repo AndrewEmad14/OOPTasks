@@ -37,81 +37,80 @@ int main() {
                                                      //Get second complex number
     while(!(cin>>complex2)){cout<<"Input Invalid,Please Try Again"<<endl;cin.clear(); }
 
-    complex1+=1;
-    cout<<complex1;
 
 
-//
-//    while(choice!=OPTION_EXIT){
-//        displayMenu();
-//        while(!(getUserInput(choice))){cout<<"Input Invalid,Please Try Again"<<endl;}
-//        switch(choice){
-//            case OPTION_ADDITION:
-//                complex1=complex1+complex2;
-//                cout<<complex1<<endl;
-//                break;
-//            case OPTION_SUBTRACTION:
-//                complex1=complex1-complex2;
-//                cout<<complex1<<endl;
-//                break;
-//            case OPTION_MULTIPLICATION:
-//                complex1*=complex2;
-//                cout<<complex1<<endl;
-//                break;
-//            case OPTION_DIVISION:
-//                if(!complex2.isComplexZero()){
-//                    complex1/=complex2;
-//                    cout<<complex1<<endl;
-//                }else{
-//                cout<<"Cant Divide by zero"<<endl;
-//                }
-//                break;
-//            case OPTION_NUMBER_ADDITION:
-//                cout<<"Please enter a number"<<endl;
-//                while(!(getUserInput(realNumber))){cout<<"Input Invalid,Please Try Again"<<endl;}
-//                complex1+=realNumber;
-//                cout<<complex1<<endl;
-//                realNumber=DEFAULTVAL;
-//                break;
-//            case OPTION_NUMBER_SUBTRACTION:
-//                cout<<"Please enter a number"<<endl;
-//                while(!(getUserInput(realNumber))){cout<<"Input Invalid,Please Try Again"<<endl;}
-//                complex1-=realNumber;
-//                cout<<complex1<<endl;
-//                realNumber=DEFAULTVAL;
-//                break;
-//            case OPTION_NUMBER_MULTIPLICATION:
-//                cout<<"Please enter a number"<<endl;
-//                while(!(getUserInput(realNumber))){cout<<"Input Invalid,Please Try Again"<<endl;}
-//                complex1=complex1*realNumber;
-//                cout<<complex1<<endl;
-//                realNumber=DEFAULTVAL;
-//                break;
-//            case OPTION_NUMBER_DIVISION:
-//            cout<<"Please enter a number"<<endl;
-//                while(!(getUserInput(realNumber))&&realNumber==0){cout<<"Input Invalid,Please Try Again"<<endl;}
-//                complex1=complex1/realNumber;
-//                cout<<complex1<<endl;
-//                realNumber=DEFAULTVAL;
-//                break;
-//            case OPTION_COMPARE:
-//                result =complex1.compareComplex(complex2);
-//                if(result==0){
-//                    cout<<"complex1 is equal to complex 2"<<endl;
-//                }else if(result==-1){
-//                    cout<<"complex1 is greater that complex2"<<endl;
-//                }else{
-//                    cout<<"complex2 is greater than complex1"<<endl;
-//                }
-//                break;
-//            case OPTION_DISPLAY_COMPLEX:
-//                cout<<complex1<<endl;
-//                cout<<complex2<<endl;
-//                break;
-//            default:
-//            ;
-//        }
-//    }
+
+
+    while(choice!=OPTION_EXIT){
+        displayMenu();
+        while(!(getUserInput(choice))){cout<<"Input Invalid,Please Try Again"<<endl;}
+        switch(choice){
+            case OPTION_ADDITION:
+                complex1=complex1+complex2;
+                cout<<complex1<<endl;
+                break;
+            case OPTION_SUBTRACTION:
+                complex1=complex1-complex2;
+                cout<<complex1<<endl;
+                break;
+            case OPTION_MULTIPLICATION:
+                complex1*=complex2;
+                cout<<complex1<<endl;
+                break;
+            case OPTION_DIVISION:
+                if(!complex2.isComplexZero()){
+                    complex1/=complex2;
+                    cout<<complex1<<endl;
+                }else{
+                cout<<"Cant Divide by zero"<<endl;
+                }
+                break;
+            case OPTION_NUMBER_ADDITION:
+                cout<<"Please enter a number"<<endl;
+                while(!(getUserInput(realNumber))){cout<<"Input Invalid,Please Try Again"<<endl;}
+                complex1+=realNumber;
+                cout<<complex1<<endl;
+                realNumber=DEFAULTVAL;
+                break;
+            case OPTION_NUMBER_SUBTRACTION:
+                cout<<"Please enter a number"<<endl;
+                while(!(getUserInput(realNumber))){cout<<"Input Invalid,Please Try Again"<<endl;}
+                complex1-=realNumber;
+                cout<<complex1<<endl;
+                realNumber=DEFAULTVAL;
+                break;
+            case OPTION_NUMBER_MULTIPLICATION:
+                cout<<"Please enter a number"<<endl;
+                while(!(getUserInput(realNumber))){cout<<"Input Invalid,Please Try Again"<<endl;}
+                complex1=complex1*realNumber;
+                cout<<complex1<<endl;
+                realNumber=DEFAULTVAL;
+                break;
+            case OPTION_NUMBER_DIVISION:
+            cout<<"Please enter a number"<<endl;
+                while(!(getUserInput(realNumber))&&realNumber==0){cout<<"Input Invalid,Please Try Again"<<endl;}
+                complex1=complex1/realNumber;
+                cout<<complex1<<endl;
+                realNumber=DEFAULTVAL;
+                break;
+            case OPTION_COMPARE:
+                result =complex1.compareComplex(complex2);
+                if(result==0){
+                    cout<<"complex1 is equal to complex 2"<<endl;
+                }else if(result==-1){
+                    cout<<"complex1 is greater that complex2"<<endl;
+                }else{
+                    cout<<"complex2 is greater than complex1"<<endl;
+                }
+                break;
+            case OPTION_DISPLAY_COMPLEX:
+                cout<<complex1<<endl;
+                cout<<complex2<<endl;
+                break;
+            default:
+            ;
+        }
+    }
 
 
 

@@ -1,45 +1,53 @@
 # depslib dependency file v1.0
-1764596550 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/main.cpp
+1764864239 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/main.cpp
 	<iostream>
 	"Picture.h"
 	"Circle.h"
 	"Line.h"
 	"Rectangle.h"
+	"Shape.h"
 
 1764594644 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Point.cpp
 	"Point.h"
 
 1764594441 /home/andrew-emad/Documents/OOPTasks/DrawIO/Point.h
 
-1764594938 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Circle.cpp
+1764597925 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Circle.cpp
 	"Circle.h"
 	<iostream>
 
-1764594938 /home/andrew-emad/Documents/OOPTasks/DrawIO/Circle.h
+1764863037 /home/andrew-emad/Documents/OOPTasks/DrawIO/Circle.h
 	"Point.h"
 	<iostream>
+	"Shape.h"
 
-1764594952 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Rectangle.cpp
+1764597925 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Rectangle.cpp
 	"Rectangle.h"
 	<iostream>
 
-1764594743 /home/andrew-emad/Documents/OOPTasks/DrawIO/Rectangle.h
+1764859619 /home/andrew-emad/Documents/OOPTasks/DrawIO/Rectangle.h
 	"Point.h"
+	"Shape.h"
 	<iostream>
 
-1764594971 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Line.cpp
+1764597925 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Line.cpp
 	"Line.h"
 	<iostream>
 
-1764594741 /home/andrew-emad/Documents/OOPTasks/DrawIO/Line.h
+1764859779 /home/andrew-emad/Documents/OOPTasks/DrawIO/Line.h
 	"Point.h"
 	<iostream>
+	"Shape.h"
 
-1764596445 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Picture.cpp
+1764864186 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Picture.cpp
 	"Picture.h"
 
-1764595980 /home/andrew-emad/Documents/OOPTasks/DrawIO/Picture.h
+1764864253 /home/andrew-emad/Documents/OOPTasks/DrawIO/Picture.h
 	"Circle.h"
 	"Rectangle.h"
 	"Line.h"
+
+1764857692 source:/home/andrew-emad/Documents/OOPTasks/DrawIO/Shape.cpp
+
+1764859624 /home/andrew-emad/Documents/OOPTasks/DrawIO/Shape.h
 

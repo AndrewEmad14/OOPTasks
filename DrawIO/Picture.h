@@ -8,22 +8,11 @@
 class Picture
 {
 private:
-    int circleNum;
-    int rectangleNum;
-    int lineNum;
-
-    Circle *pCircles;
-    Rect *pRects;
-    Line *pLines;
 
 public:
-    Picture();
-    Picture(int circleNum, int rectangleNum, int lineNum, Circle *pCircles, Rect *pRects, Line *pLines);
-    void setCircles(int circleNum, Circle *pCircles);
-    void setRects(int rectangleNum, Rect *pRects);
-    void setLines(int lineNum, Line *pLines);
-    void paint();
-    ~Picture();
+
+    void paint(Shape* myShape[],int shapeSize);
+
 };
 
 #endif // PICTURE_H

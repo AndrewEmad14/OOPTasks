@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="DrawIO" />
+		<Option title="DrawIOShape" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -32,6 +32,18 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Circle.cpp" />
+		<Unit filename="Circle.h" />
+		<Unit filename="Line.cpp" />
+		<Unit filename="Line.h" />
+		<Unit filename="Picture.cpp" />
+		<Unit filename="Picture.h" />
+		<Unit filename="Point.cpp" />
+		<Unit filename="Point.h" />
+		<Unit filename="Rectangle.cpp" />
+		<Unit filename="Rectangle.h" />
+		<Unit filename="Shape.cpp" />
+		<Unit filename="Shape.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
