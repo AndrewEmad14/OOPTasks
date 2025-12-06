@@ -1,5 +1,6 @@
 
 #include "StreamValidator.h"
+#include <sstream>
 using namespace std;
 bool StreamValidator:: isEmpty(string stream){
       return stream.empty();
@@ -24,7 +25,7 @@ bool StreamValidator:: CastToIntger(string stream,int &number){
         return true;
 
 }
-bool StreamValidator::CastToDouble(std::string stream,double &number){
+bool StreamValidator::CastToDouble(string stream,double &number){
         int startIndex = DEFAULTVAL;
         int decimalPointFlag=DEFAULTVAL;
         int digitCount=DEFAULTVAL;
@@ -54,3 +55,20 @@ bool StreamValidator::CastToDouble(std::string stream,double &number){
 
 
 }
+bool StreamValidator::CastToChar(std::string stream,char &character){
+    if(stream.size()==1){
+        character=stream[0];
+        return true;
+    }
+    return false;
+}
+int  StreamValidator::getNumberOfInput(string stream){
+    stringstream ss(stream);
+    string word;
+    int counter=0;
+    while(ss >> word) {
+        counter++;
+    }
+    return counter;
+}
+

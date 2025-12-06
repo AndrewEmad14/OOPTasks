@@ -5,7 +5,7 @@
 class PythonList{
     Item* itemList;
     int listSize;
-    int tos;
+
 public:
                                                 //default batch
     PythonList();
@@ -26,6 +26,10 @@ public:
     PythonList& operator=(const string& other);
     Item&  operator[](int index);
     const Item& operator[](int index)const;
+
+    friend std::istream& operator>>(std::istream& is,PythonList&  targetList);
+    friend std::ostream& operator<<(std::ostream& os, const PythonList& targetList);
+
     ~PythonList();
 
 

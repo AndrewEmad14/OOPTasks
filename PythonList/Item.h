@@ -7,12 +7,10 @@
 #include <string>
 using namespace std;
 class Item {
-    union {
-        int intVal;
-        double doubleVal;
-        char charVal;
 
-    };
+    int intVal;
+    double doubleVal;
+    char charVal;
     string strVal;
     char type;                                              // 'i', 'd', 'c', 's'
 
@@ -39,7 +37,10 @@ public:
     operator char() const;
     operator string() const;
 
-                                                            // Destructor
+                                                            // Display
+    friend ostream& operator<<(ostream& os, const Item& targetItem);
+    void display()const;
+
 
 };
 

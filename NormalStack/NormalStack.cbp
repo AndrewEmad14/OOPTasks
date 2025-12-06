@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Stack.cpp" />
+		<Unit filename="Stack.h" />
+		<Unit filename="StreamValidator.cpp" />
+		<Unit filename="StreamValidator.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

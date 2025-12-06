@@ -59,7 +59,7 @@ class CustomString{
 
                                                                             //assigment and append
         CustomString& operator+=(const CustomString& other);
-
+                                                                            //compare
         bool operator==(const CustomString& other)const;
         bool operator!=(const CustomString& other)const;
         bool operator>(const CustomString& other)const;

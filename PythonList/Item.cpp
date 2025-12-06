@@ -1,7 +1,8 @@
 #include "Item.h"
 #include <stdexcept>
+#include <iostream>
                                                                         //default constrcutors and assigment
-Item::Item() : intVal(0), type('i') {}
+Item::Item() : intVal(0), type(INTEGER) {}
 Item::Item(int val){
     this->intVal=val;
     this->type=INTEGER;
@@ -42,31 +43,31 @@ Item& Item::operator=(int val) {
 
 
     intVal = val;
-    type = 'i';
+    type = INTEGER;
     return *this;
 }
 
                                             // Assignment from double
 Item& Item::operator=(double val) {
     doubleVal = val;
-    type = 'd';
+    type = DOUBLE;
     return *this;
 }
 
                                         // Assignment from char
 Item& Item::operator=(char val) {
     charVal = val;
-    type = 'c';
+    type = CHAR;
     return *this;
 }
 
 
 Item& Item::operator=(const string& val) {
     strVal = val;
-    type = 's';
+    type = STRING;
     return *this;
 }
-                                                                // Conversion operators
+                                                                // Conversion operators (overloading the casting operator)
 Item::operator int() const {
     if (type !=INTEGER) throw invalid_argument("Not an int");
     return intVal;
@@ -86,6 +87,33 @@ Item::operator string() const {
     if (type !=STRING) throw invalid_argument("Not a string");
     return strVal;
 }
+void Item::display()const{
+         switch(this->type) {
+            case INTEGER: {
+                int tempInt = this->intVal;
+                cout << tempInt;
+                break;
+            }
+            case DOUBLE: {
+                double tempDouble = this->doubleVal;  // Fixed typo
+                cout << tempDouble;
+                break;
+            }
+            case CHAR: {
+                char tempChar = this->charVal;
+                cout << tempChar;
+                break;
+            }
+            case STRING: {
+                string tempString = this->strVal;
+                cout << tempString;  // Fixed: was 'x'
+                break;
+            }
+        }
+}
+ ostream& operator<<(ostream& os, const Item& targetItem){
 
-
+            targetItem.display();
+            return os;
+ }
 char Item::getType() const { return type; }

@@ -1,18 +1,21 @@
 #include <iostream>
 #include "PythonList.h"
+
+#include "StreamValidator.h"
 using namespace std;
 
 int main()
 {
+    cout<<"please Enter you List"<<endl;
+    PythonList myList;
+    cin>>myList;
+    cout<<myList<<endl;
+    myList[0]="i have changed";
+    myList[1]=3.14;
+    cout<<myList;
 
-    PythonList myList(5);
-    myList[0]=1;
-    myList[1]='c';
-    myList[2]="haai";
-    int x=myList[0];
-    char y=myList[1];
-    string z=myList[2];
-    cout<<x<< y<<z;
+
+
 
 
 

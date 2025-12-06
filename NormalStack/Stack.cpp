@@ -103,7 +103,7 @@ bool Stack::pop(int& value ){
     return 1;
 }
 int& Stack::operator[](int index){
-    if(this->tos<0)||index>tos)throw std::out_of_range("out of bounds");
+    if((this->tos<0)||index>tos)throw std::out_of_range("out of bounds");
     return this->itemPtr[index];
 }
 const int& Stack::operator[](int index)const{
