@@ -12,12 +12,13 @@ CustomString::CustomString(){
 CustomString::CustomString(const char* input){
         if(input==NULL){
             this->str=nullptr;
+            this->strSize=0;
             return;
         }
 
         const char*inputHead= input;
         this->strSize=cstringLength(input);
-        this->str=new char[this->strSize];
+        this->str=new char[this->strSize+1];
         char*head=this->str;
         while(*(inputHead)){
             *head=*inputHead;
@@ -32,12 +33,13 @@ CustomString::CustomString(const char* input){
 CustomString::CustomString(CustomString& other){
         if(other.str==NULL){
             this->str=nullptr;
+            this->strSize=0;
             return;
         }
 
         const char*inputHead= other.str;
         this->strSize=other.strSize;
-        this->str=new char[this->strSize];
+        this->str=new char[this->strSize+1];
         char*head=this->str;
         while(*(inputHead)){
             *head=*inputHead;
@@ -62,6 +64,7 @@ void CustomString::display(){
 
 }
 void CustomString::operator*(int x){
+    if(x<0)return;
     while(x){
           this->display();
           x--;
@@ -72,9 +75,9 @@ void CustomString::operator*(int x){
                                                     //done
 bool CustomString::setString(const char* input){
     if(input==NULL)return 0;
-    this->strSize= cstringLength(input)+1;
+    this->strSize= cstringLength(input);
     delete[] this->str;
-    this->str=new char[strSize+1];
+    this->str=new char[this->strSize+1];
     char*head=this->str;
     while(*input){
             *head=*input;
@@ -88,9 +91,9 @@ bool CustomString::setString(const char* input){
                                                             //setters and getters  --done
 bool CustomString::setString(const CustomString& other){
     if(other.str==NULL)return 0;
-    this->strSize=other.strSize+1;
+    this->strSize=other.strSize;
     delete[] this->str;
-    this->str=new char[this->strSize];
+    this->str=new char[this->strSize+1];
     char*head=this->str;
     char*input=other.str;
     while(*input){
@@ -139,7 +142,7 @@ bool CustomString::strCopy(char str1[],char str2[],int str1Size){
 }
                                             //to lower case and to upper case    -- done
 bool CustomString::toLower(){
-    if(this->str!=NULL)return 0;
+    if(this->str==NULL)return 0;
     int diff='a'-'A';
 
     char* head =this->str;
@@ -152,7 +155,7 @@ bool CustomString::toLower(){
     return 1;
 }
 bool CustomString::toUpper(){
-    if(this->str!=NULL)return 0;
+    if(this->str==NULL)return 0;
     int diff='a'-'A';
     char* head =this->str;
     while(*(head)){
@@ -166,20 +169,20 @@ bool CustomString::toUpper(){
 
                                                                         //append done
 bool CustomString::append(const char* input){
-    if(input==NULL)return true;
+    if(input==NULL)return false;
     char* res;
     int originalSize=this->strSize;
     int inputSize=cstringLength(input);
                                             //get the sum of the sizes and create an array with both sizes
     this->strSize=originalSize+inputSize;
-    res=new char[this->strSize+1];
+    res=new char[this->strSize+1];                  //small reminder that when creating new it doesnt deallocate automatically when the function dies
     char* head=res;
                                             //if the caller is not empty put it in the new char array
     if(this->str != NULL){
             char* originalHead=this->str;
             while(*(originalHead)){
                 *(res)=*(originalHead);
-                *(originalHead)++;
+                originalHead++;
                 res++;
             }
             delete[] this->str;
@@ -192,7 +195,7 @@ bool CustomString::append(const char* input){
     }
     *res='\0';                              //dont forget the terminator \0
     this->str =head;
-    return 1;                               //operation successful
+    return true;                               //operation successful
 }
 
 
@@ -204,6 +207,7 @@ bool CustomString::append(const CustomString& other){
     int originalSize=this->strSize;
     int inputSize=other.strSize;
                                             //get the sum of the sizes and create an array with both sizes
+                                            //two terminators in size and other size
     this->strSize=originalSize+inputSize;
     res=new char[this->strSize+1];
     char* head=res;
@@ -212,7 +216,7 @@ bool CustomString::append(const CustomString& other){
             char* originalHead=this->str;
             while(*(originalHead)){
                 *(res)=*(originalHead);
-                *(originalHead)++;
+                originalHead++;
                 res++;
             }
             delete[] this->str;
@@ -238,7 +242,7 @@ int CustomString::strCompare(const char str2[])const {
     if(this->str == nullptr) return 1;
     if(str2 == nullptr) return -1;
 
-    int size1 = this->strSize - 1;          // Exclude null terminator
+    int size1 = this->strSize ;          // Exclude null terminator
     int size2 = cstringLength(str2);
 
                                         // Compare by length first
@@ -261,8 +265,8 @@ int CustomString::strCompare(const CustomString& other)const {
     if(this->str == nullptr) return 1;
     if(other.str == nullptr) return -1;
 
-    int size1 = this->strSize - 1;          // Exclude null terminator
-    int size2 = other.strSize - 1;
+    int size1 = this->strSize ;          // Exclude null terminator
+    int size2 = other.strSize ;
 
                                         // Compare by length first
     if(size1 < size2) return 1;
@@ -389,9 +393,47 @@ ostream& operator<<(std::ostream& os, const CustomString& c){
     return os;
 
 }
-istream& operator>>(std::istream& is, CustomString& c){
-       //to be implemented
+istream& operator>>(std::istream& is, CustomString& c) {
 
+    if(c.str != nullptr) {
+        delete[] c.str;
+        c.str = nullptr;
+        c.strSize = 0;
+    }
+
+    int capacity = 2;
+    char* temp = new char[capacity];
+    int length = 0;
+    char currentChar;
+
+                                                                        // Read character by character until newline or EOF
+    while(is.get(currentChar) && currentChar != '\n') {
+                                                                            // Double the capacity if growth is needed
+        if(length >= capacity) {
+            capacity *= 2;
+            char* newTemp = new char[capacity];
+
+            for(int i = 0; i < length; i++) {
+                newTemp[i] = temp[i];
+            }
+
+            delete[] temp;
+            temp = newTemp;
+        }
+
+        temp[length++] = currentChar;
+    }
+    c.strSize = length;
+    c.str = new char[c.strSize + 1];
+
+    for(int i = 0; i < length; i++) {
+        c.str[i] = temp[i];
+    }
+    c.str[c.strSize] = '\0';
+
+    delete[] temp;
+
+    return is;
 }
 
 CustomString::~CustomString(){

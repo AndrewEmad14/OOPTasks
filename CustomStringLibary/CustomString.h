@@ -1,16 +1,7 @@
 #ifndef CUSTOM_STRING_H
 #define CUSTOM_STRING_H
 #include <iostream>
-//length
-//compare
-//tolower
-//toupper
-//concat
-//copy
-//reverse
-//display
-//<< >> + == >= <= > < overload operators
-//
+
 
 class CustomString{
         char *str=nullptr;
@@ -21,9 +12,8 @@ class CustomString{
 
     public:
         static int cstringLength(const char*input);
-        static CustomString strConcatinate(const char str1[],const char str2[]);
-        static CustomString strConcatinate(const CustomString& first,const CustomString& other);
-        static CustomString strConcatinate(const CustomString& first,const char str2[]);
+       // static CustomString strConcatinate(const char str1[],const char str2[]);
+
         static bool strCopy(char str1[],char str2[],int size_str2);
                                                                             //constructors
         CustomString();

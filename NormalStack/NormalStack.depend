@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1764964039 source:/home/andrew-emad/Documents/OOPTasks/NormalStack/StreamValidator.cpp
+	"StreamValidator.h"
+
+1764964140 /home/andrew-emad/Documents/OOPTasks/NormalStack/StreamValidator.h
+	<string>
+
+1764980219 source:/home/andrew-emad/Documents/OOPTasks/NormalStack/main.cpp
+	<iostream>
+	"Stack.h"
+
+1764980008 source:/home/andrew-emad/Documents/OOPTasks/NormalStack/Stack.cpp
+	<iostream>
+	"Stack.h"
+
+1764980013 /home/andrew-emad/Documents/OOPTasks/NormalStack/Stack.h
+

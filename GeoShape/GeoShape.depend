@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1764955940 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/Circle.cpp
+	"Circle.h"
+
+1764955559 /home/andrew-emad/Documents/OOPTasks/GeoShape/Circle.h
+	<iostream>
+	"GeoShape.h"
+
+1764594441 /home/andrew-emad/Documents/OOPTasks/GeoShape/Point.h
+
+1764857634 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/Line.cpp
+	"Line.h"
+	<iostream>
+
+1764954312 /home/andrew-emad/Documents/OOPTasks/GeoShape/Line.h
+	"Point.h"
+	<iostream>
+	"GeoShape.h"
+
+1764865900 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/Picture.cpp
+	"Picture.h"
+
+1764865784 /home/andrew-emad/Documents/OOPTasks/GeoShape/Picture.h
+	"Circle.h"
+	"Rectangle.h"
+	"Line.h"
+	"GeoShape.h"
+
+1764957172 /home/andrew-emad/Documents/OOPTasks/GeoShape/Rectangle.h
+	"GeoShape.h"
+	<iostream>
+
+1764594644 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/Point.cpp
+	"Point.h"
+
+1764957478 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/Rectangle.cpp
+	"Rectangle.h"
+
+1764857561 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/Shape.cpp
+
+1764865564 /home/andrew-emad/Documents/OOPTasks/GeoShape/Shape.h
+
+1764955940 /home/andrew-emad/Documents/OOPTasks/GeoShape/GeoShape.h
+
+1764957282 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/main.cpp
+	<iostream>
+	"GeoShape.h"
+	"Rectangle.h"
+	"Circle.h"
+	"Triangle.h"
+	"Square.h"
+
+1764955940 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/Square.cpp
+	"Square.h"
+
+1764954741 /home/andrew-emad/Documents/OOPTasks/GeoShape/Square.h
+	"Rectangle.h"
+	<iostream>
+
+1764955940 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/Triangle.cpp
+	"Triangle.h"
+
+1764954981 /home/andrew-emad/Documents/OOPTasks/GeoShape/Triangle.h
+	"GeoShape.h"
+	<iostream>
+
+1764955858 source:/home/andrew-emad/Documents/OOPTasks/GeoShape/GeoShape.cpp
+	"GeoShape.h"
+

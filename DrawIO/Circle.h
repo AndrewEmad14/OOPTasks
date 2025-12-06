@@ -13,7 +13,7 @@ private:
 public:
     Circle();
     Circle(int m, int n, int r);
-    void draw();
+    void draw() override;
 };
 
 #endif // CIRCLE_H

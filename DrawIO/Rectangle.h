@@ -14,7 +14,7 @@ public:
     Rect();
     Rect(int x1, int y1, int x2, int y2);
 
-    void draw();
+    void draw() override;
 };
 
 #endif // RECT_H

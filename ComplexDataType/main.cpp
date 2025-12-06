@@ -21,7 +21,7 @@ bool getUserInput(int &choice);
 bool getUserInput(double &num);
 void displayMenu(void);
 
-int main() {
+int main(void) {
                                                             //welcome message
 
 
