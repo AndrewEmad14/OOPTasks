@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1764985496 source:/home/andrew-emad/Documents/OOPTasks/TemplateStack/main.cpp
+	"TemplateStack.h"
+	<iostream>
+	<string>
+
+1764985601 source:/home/andrew-emad/Documents/OOPTasks/TemplateStack/TemplateStack.cpp
+
+1764985743 /home/andrew-emad/Documents/OOPTasks/TemplateStack/TemplateStack.h
+	"iostream"
+
