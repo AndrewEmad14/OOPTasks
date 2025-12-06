@@ -22,6 +22,7 @@ public:
     bool pop(T& value);
 
     T& operator[](int index);
+    const T& operator[](int index)const;
 
                                                     //destructor
     ~TemplateStack();
@@ -139,9 +140,15 @@ bool  TemplateStack<T>::pop(T& value ){
 }
 template<typename T>
 T&  TemplateStack<T>::operator[](int index){
-    if(this->tos<0)throw std::out_of_range("out of bounds");
+    if(this->tos<0)||index>tos)throw std::out_of_range("out of bounds");
     return this->itemPtr[index];
 }
+template<typename T>
+const T& TemplateStack<T>::operator[](int index)const{
+     if(this->tos<0)||index>tos)throw std::out_of_range("out of bounds");
+    return this->itemPtr[index];
+}
+
 template<typename T>
  TemplateStack<T>::~TemplateStack<T>(){
     delete[] itemPtr;

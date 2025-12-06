@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1765028796 source:/home/andrew-emad/Documents/OOPTasks/PythonList/PythonList.cpp
+	"PythonList.h"
+	<iostream>
+
+1765012872 source:/home/andrew-emad/Documents/OOPTasks/PythonList/StreamValidator.cpp
+	"StreamValidator.h"
+
+1765012880 /home/andrew-emad/Documents/OOPTasks/PythonList/StreamValidator.h
+	<string>
+
+1765028539 source:/home/andrew-emad/Documents/OOPTasks/PythonList/main.cpp
+	<iostream>
+	"PythonList.h"
+
+1765028539 /home/andrew-emad/Documents/OOPTasks/PythonList/Item.h
+	<string>
+
+1765028615 source:/home/andrew-emad/Documents/OOPTasks/PythonList/Item.cpp
+	"Item.h"
+	<stdexcept>
+
+1765027952 /home/andrew-emad/Documents/OOPTasks/PythonList/PythonList.h
+	<string>
+	"Item.h"
+

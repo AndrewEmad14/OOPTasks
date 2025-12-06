@@ -298,4 +298,6 @@ const double& Complex:: operator[](int index) const {
     else if (index == 1) return imag;
     else throw std::out_of_range("Complex number has only 2 components");
 }
-
+double Complex:: operator()()const{
+            return getMagnitude();
+}

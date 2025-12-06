@@ -21,6 +21,7 @@ public:
     bool pop(int& value);
 
     int& operator[](int index);
+    const int& operator[](int index)const;
 
                                                     //destructor
     ~Stack();

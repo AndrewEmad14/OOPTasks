@@ -75,6 +75,7 @@ class Complex{
         Complex operator-(double realNum);
         Complex operator*(double realNum);
         Complex operator/(double realNum);
+        double  operator()()const;
                                                         //assigment with int
         Complex& operator+=(double realNum);
         Complex& operator-=(double realNum);
